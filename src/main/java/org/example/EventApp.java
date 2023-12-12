@@ -1,9 +1,17 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class EventApp {
+
+
+    List<Event> events;
+
+    public EventApp(){
+        events = new ArrayList<>();
+    }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -20,14 +28,21 @@ public class EventApp {
 
     public void AddEvent(Event event){
 
+        events.add(event);
     }
 
     public void DeleteEvent(Event event){
-
+        events.remove(event);
     }
 
     public String ListAllEvents(){
-        return null;
+        String output = "";
+
+        for (int i = 0; i < events.size(); i++) {
+            output+= events.get(i).toString()+"\n";
+        }
+
+        return output;
     }
 
 
